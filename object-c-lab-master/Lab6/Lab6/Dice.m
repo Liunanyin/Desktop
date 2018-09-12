@@ -1,73 +1,68 @@
 //
 //  Dice.m
-//  Lab6
+//  lab6
 //
-//  Created by liunanyin on 2018-09-10.
+//  Created by liunanyin on 2018-09-11.
 //  Copyright © 2018 liunanyin. All rights reserved.
 //
 
 #import "Dice.h"
 
 @implementation Dice
-
-- (instancetype)init
+-(instancetype)init
 {
-    self = [super init];
-    if (self) {
-        _value = 1 + arc4random_uniform(6);
+    self =[super init];
+    if(self){
+        _faceValue = arc4random_uniform(6)+1;
         _held = false;
     }
     return self;
 }
-
-+(instancetype) dice {
-    return [[self alloc] init];
-}
-
 -(void)roll{
-    _value = 1 + arc4random_uniform(6);
+    _faceValue = arc4random_uniform(6) +1;
 }
--(void)hold{
-    _held = true;
++(instancetype) dice {
+    return [[self alloc]init];
 }
 
 - (NSString *)description
 {
-    switch (_value) {
+    switch (_faceValue) {
         case 1:
-            if (_held){
-                 return @"[⚀]";
-            }
-            return @"⚀";
-        case 2:
-            if (_held){
-                return @"[⚁]";
-            }
-            return @"⚁";
-        case 3:
-            if (_held){
-                return @"[⚂]";
-            }
-            return @"⚂";
-        case 4:
-            if (_held){
-                return @"[⚃]";
-            }
-            return @"⚃";
-        case 5:
-            if (_held){
-                return @"[⚄]";
-            }
-            return @"⚄";
-        case 6:
-            if (_held){
-                return @"[⚅]";
-            }
-            return @"⚅";
-        default:
-            return @"Invalid die";
-            break;
+            if(_held){
+                return @"😇";
+               
             
+            }case 2:
+            if(_held){
+                return @"🤪";
+               
+            }
+        case 3:
+            if(_held){
+                return @"🤩";
+                
+            }
+        case 4:
+            if(_held){
+                return @"😣";
+               
+            
+            }case 5:
+            if(_held){
+                return @"😛";
+               
+            }
+        case 6:
+            if(_held){
+                return @"😎";
+               
+            }
+            
+            
+        default:
+            return @"Invalid Die";
     }
 }
+
 @end
